@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class NbpOriginApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(NbpOriginApplication.class, args);
 	}
 
