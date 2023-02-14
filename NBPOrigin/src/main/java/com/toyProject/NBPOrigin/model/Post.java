@@ -14,20 +14,20 @@ public class Post {
 
 
 
-
-    public Post(PostDto postDto) {
-        this.postId = postDto.getPostId();
-        this.title = postDto.getTitle();
-        this.body = postDto.getBody();
-        this.img = postDto.getImg();
-    }
-
-    public Post(int postId, String title, String body, Blob img) {
-        this.postId = postId;
-        this.title = title;
-        this.body = body;
-        this.img = img;
-    }
+//    public Post(PostDto postDto) {
+//        this.postId = postDto.getPostId();
+//        this.title = postDto.getTitle();
+//        this.body = postDto.getBody();
+//        this.img = postDto.getImg();
+//    }
+//
+//
+//    public Post(int postId, String title, String body, Blob img) {
+//        this.postId = postId;
+//        this.title = title;
+//        this.body = body;
+//        this.img = img;
+//    }
 
     public int getPostId() {
         return postId;
