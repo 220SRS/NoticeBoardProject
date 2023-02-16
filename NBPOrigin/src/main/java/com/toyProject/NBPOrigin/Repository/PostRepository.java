@@ -11,6 +11,8 @@ public interface PostRepository {
     Optional<Post> findById(int id);
     Optional<Post> findByTitle(String title);
     List<Post> findAll();
+    Post update(int postId, Post post);
+    void delete(int postId);
 
 
 }
