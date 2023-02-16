@@ -24,11 +24,11 @@ public class PostService {
     }
 
 
-    public Optional<Post> show(int postId){
+    public Post show(int postId){
 
         Optional<Post> response = jdbcTemplatePostRepository.findById(postId);
 
-        return response;
+        return response.orElse(null);
     }
 
 
@@ -44,6 +44,7 @@ public class PostService {
     }
 
 
-
-
+    public void delete(int postID) {
+        jdbcTemplatePostRepository.delete(postID);
+    }
 }

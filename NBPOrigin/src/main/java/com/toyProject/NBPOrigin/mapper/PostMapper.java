@@ -8,6 +8,6 @@ import org.mapstruct.ReportingPolicy;
 
 @Mapper(componentModel = "spring", unmappedSourcePolicy = ReportingPolicy.IGNORE)
 public interface PostMapper {
-    Post PostDtoToPost (PostDto postDto);
-    Post PostToPostDto (Post post);
+    Post postdtoToPost (PostDto postDto);
+    PostDto postTopostDto (Post post);
 }

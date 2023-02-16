@@ -1,6 +1,7 @@
 package com.toyProject.NBPOrigin.ApiController;
 
 import com.toyProject.NBPOrigin.dto.PostDto;
+import com.toyProject.NBPOrigin.mapper.PostMapper;
 import com.toyProject.NBPOrigin.model.Post;
 import com.toyProject.NBPOrigin.service.PostService;
 import org.springframework.http.HttpStatus;
@@ -8,9 +9,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("api/posts")
+@RequestMapping("/api/posts")
 public class PostController {
 
     private final PostService postService;
@@ -23,11 +25,11 @@ public class PostController {
 
     @GetMapping
     public ResponseEntity postList(){
-        List<PostDto> postDtoList = postService.list().stream()
+        List<Post> posts = postService.list();
+        List<PostDto> postDtoList = posts.stream()
                 .map(post -> postMapper.postTopostDto(post))
-                .collect(Collecters.toList());
-
-        return new ResponseEntity(postDtoList, HttpStatus.OK);
+                .collect(Collectors.toList());
+        return new ResponseEntity(HttpStatus.OK);
     }
 
     @GetMapping("/{post-id}")
@@ -41,8 +43,8 @@ public class PostController {
     @PostMapping
     public ResponseEntity create(@RequestBody PostDto postDto){
 
-        Post post = postMapper.postDtoToPost(postDto);
-        Post response = postService.create(postDto);
+        Post post = postMapper.postdtoToPost(postDto);
+        Post response = postService.create(post);
         return new ResponseEntity(postMapper.postTopostDto(response), HttpStatus.CREATED);
     }
 
@@ -53,7 +55,7 @@ public class PostController {
     public ResponseEntity update(@PathVariable("post-id") int postId,
                                  @RequestBody PostDto postDto){
 
-        Post post = postMapper.postDtoTopost(postDto);
+        Post post = postMapper.postdtoToPost(postDto);
         Post response = postService.update(postId, post);
         return new ResponseEntity(HttpStatus.OK);
     }
