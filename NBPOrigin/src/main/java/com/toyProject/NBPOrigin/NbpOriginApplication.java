@@ -9,6 +9,7 @@ public class NbpOriginApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(NbpOriginApplication.class, args);
+		// 우헤헤헿ㅎㅎㅎㅎ
 	}
 
 }
