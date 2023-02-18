@@ -40,6 +40,7 @@ public class PostService {
 
     public Post update(int postId, Post post){
 
+
         return jdbcTemplatePostRepository.update(postId, post);
     }
 

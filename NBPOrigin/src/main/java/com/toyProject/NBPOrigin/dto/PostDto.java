@@ -1,5 +1,6 @@
 package com.toyProject.NBPOrigin.dto;
 
+import com.toyProject.NBPOrigin.model.Post;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import java.sql.Blob;
@@ -46,6 +47,16 @@ public class PostDto {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public void patch(Post post) {
+        if(post.getTitle() != null) {
+            this.title = post.getTitle();
+        }
+        if(post.getBody() != null) {
+            this.body = post.getBody();
+        }
+
     }
 
 //    public Blob getImg() {
