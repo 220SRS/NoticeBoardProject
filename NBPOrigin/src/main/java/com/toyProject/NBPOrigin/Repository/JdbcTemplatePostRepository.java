@@ -40,17 +40,22 @@ public class JdbcTemplatePostRepository implements PostRepository{
     //"select * from post where id = ?"
     @Override
     public Post update(int postId, Post post){
-        List<Post> result = jdbcTemplate.query("update * set body = ?, title = ? from post where postId = ?",
-                postRowMapper(), post.getBody(),post.getTitle(), postId);
-                Optional<Post> post1 = result.stream().findAny();
+//        List<Post> result = jdbcTemplate.query("update post set title = ?, body = ? where postId = ?",
+//                postRowMapper(), post.getTitle(),post.getBody(), postId);
+//                Optional<Post> post1 = result.stream().findAny();
 
-        return post1.orElse(null);
+        String updateQuery = "update post set title = ?, body = ? where postId = ?";
+//        jdbcTemplate.update(updateQuery, post.getTitle(), post.getBody(), postId);
+
+        return post;
     }
 
     @Override
     public void delete(int postId){
-        jdbcTemplate.query("delete from post where postId = ?",
-                postRowMapper(), postId);
+//        jdbcTemplate.query("delete from post where postId = ?",
+//                postRowMapper(), postId);
+        String deleteQuery = "delete from post where postId = ?";
+        jdbcTemplate.update(deleteQuery, postId);
     }
 
     @Override

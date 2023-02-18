@@ -29,7 +29,7 @@ public class PostController {
         List<PostDto> postDtoList = posts.stream()
                 .map(post -> postMapper.postTopostDto(post))
                 .collect(Collectors.toList());
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity(postDtoList,HttpStatus.OK);
     }
 
     @GetMapping("/{post-id}")

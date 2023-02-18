@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/NBPOrigin.iml" filepath="$PROJECT_DIR$/.idea/NBPOrigin.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/NBPOrigin.NBPOrigin.main~1.iml" filepath="$PROJECT_DIR$/.idea/modules/NBPOrigin.NBPOrigin.main~1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.toyProject.NBPOrigin.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.toyProject.NBPOrigin.main.iml" />
     </modules>
   </component>
 </project>
