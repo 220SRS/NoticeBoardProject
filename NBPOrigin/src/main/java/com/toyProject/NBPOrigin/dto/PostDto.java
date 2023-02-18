@@ -49,15 +49,6 @@ public class PostDto {
         this.body = body;
     }
 
-    public void patch(Post post) {
-        if(post.getTitle() != null) {
-            this.title = post.getTitle();
-        }
-        if(post.getBody() != null) {
-            this.body = post.getBody();
-        }
-
-    }
 
 //    public Blob getImg() {
 //        return img;
