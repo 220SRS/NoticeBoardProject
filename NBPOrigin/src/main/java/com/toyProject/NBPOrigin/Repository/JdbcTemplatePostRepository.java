@@ -40,8 +40,8 @@ public class JdbcTemplatePostRepository implements PostRepository{
     //"select * from post where id = ?"
     @Override
     public Post update(int postId, Post post){
-        List<Post> result = jdbcTemplate.query("update * set body = ? from post where id = ?",
-                postRowMapper(), post.getBody(), postId);
+        List<Post> result = jdbcTemplate.query("update * set body = ?, title = ? from post where postId = ?",
+                postRowMapper(), post.getBody(),post.getTitle(), postId);
                 Optional<Post> post1 = result.stream().findAny();
 
         return post1.orElse(null);
@@ -49,13 +49,13 @@ public class JdbcTemplatePostRepository implements PostRepository{
 
     @Override
     public void delete(int postId){
-        jdbcTemplate.query("delete from post where id = ?",
+        jdbcTemplate.query("delete from post where postId = ?",
                 postRowMapper(), postId);
     }
 
     @Override
     public Optional<Post> findById(int id) {
-        List<Post> result = jdbcTemplate.query("select * from post where id = ?",
+        List<Post> result = jdbcTemplate.query("select * from post where postId = ?",
                 postRowMapper(), id);
         return result.stream().findAny();
     }
@@ -73,7 +73,7 @@ public class JdbcTemplatePostRepository implements PostRepository{
     private RowMapper<Post> postRowMapper() {
         return (rs, rowNum) -> {
             Post post = new Post();
-            post.setPostId(rs.getInt("id"));
+            post.setPostId(rs.getInt("postId"));
             post.setTitle(rs.getString("title"));
             post.setBody(rs.getString("body"));
             return post;
