@@ -40,8 +40,9 @@ public class PostService {
 
     public Post update(int postId, Post post){
 
-
-        return jdbcTemplatePostRepository.update(postId, post);
+        Post originPost = jdbcTemplatePostRepository.findById(postId).orElse(null);
+        originPost.patch(post);
+        return jdbcTemplatePostRepository.update(postId, originPost);
     }
 
 

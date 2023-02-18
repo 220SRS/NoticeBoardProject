@@ -45,7 +45,7 @@ public class JdbcTemplatePostRepository implements PostRepository{
 //                Optional<Post> post1 = result.stream().findAny();
 
         String updateQuery = "update post set title = ?, body = ? where postId = ?";
-//        jdbcTemplate.update(updateQuery, post.getTitle(), post.getBody(), postId);
+        jdbcTemplate.update(updateQuery, post.getTitle(), post.getBody(), postId);
 
         return post;
     }

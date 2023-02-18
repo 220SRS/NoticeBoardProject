@@ -57,6 +57,15 @@ public class Post {
         this.body = body;
     }
 
+    public void patch(Post post) {
+        if(post.getTitle() != null) {
+            this.title = post.getTitle();
+        }
+        if(post.getBody() != null) {
+            this.body = post.getBody();
+        }
+    }
+
 //    public void setImg(Blob img) {
 //        this.img = img;
 //    }
