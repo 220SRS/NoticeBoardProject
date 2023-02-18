@@ -1,0 +1,1 @@
+INSERT INTO post(postId, title, body) VALUES (1, '첫 데이터', '첫 바디');

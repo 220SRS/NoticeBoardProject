@@ -10,7 +10,7 @@ public class Post {
     int postId;
     String title;
     String body;
-    Blob img;
+//    Blob img;
 
 
 
@@ -41,9 +41,9 @@ public class Post {
         return body;
     }
 
-    public Blob getImg() {
-        return img;
-    }
+//    public Blob getImg() {
+//        return img;
+//    }
 
     public void setPostId(int postId) {
         this.postId = postId;
@@ -57,8 +57,8 @@ public class Post {
         this.body = body;
     }
 
-    public void setImg(Blob img) {
-        this.img = img;
-    }
+//    public void setImg(Blob img) {
+//        this.img = img;
+//    }
 }
 

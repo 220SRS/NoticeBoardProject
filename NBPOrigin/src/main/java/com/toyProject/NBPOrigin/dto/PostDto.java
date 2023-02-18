@@ -1,23 +1,27 @@
 package com.toyProject.NBPOrigin.dto;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
 import java.sql.Blob;
 
+
 public class PostDto {
+
     int postId;
 
     String title;
 
     String body;
 
-    Blob img;
+//    Blob img;
 
 //    DateTime
 
-    public PostDto(int postId, String title, String body, Blob img) {
+    public PostDto(int postId, String title, String body) {
         this.postId = postId;
         this.title = title;
         this.body = body;
-        this.img = img;
+//        this.img = img;
     }
 
     public int getPostId() {
@@ -44,11 +48,11 @@ public class PostDto {
         this.body = body;
     }
 
-    public Blob getImg() {
-        return img;
-    }
-
-    public void setImg(Blob img) {
-        this.img = img;
-    }
+//    public Blob getImg() {
+//        return img;
+//    }
+//
+//    public void setImg(Blob img) {
+//        this.img = img;
+//    }
 }
